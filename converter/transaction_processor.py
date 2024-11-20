@@ -1,30 +1,28 @@
-import pandas as pd
 import json
+import pandas as pd
 import glob
 
-
 class TransactionProcessor:
-    def __init__(self, input_folder, output_file):
+    def __init__(self, input_folder, output_file, mapping_file, bank="default"):
         """
-        Initialize the TransactionProcessor with the input folder and output file path.
+        Initialize the TransactionProcessor with the input folder, output file path, and mappings.
 
         Args:
             input_folder (str): The folder containing the CSV files to process.
             output_file (str): The path to save the processed universal CSV file.
+            mapping_file (str): The JSON file containing the header mappings.
+            bank (str): The key identifying the bank's mapping in the JSON file.
         """
         self.input_folder = input_folder
         self.output_file = output_file
+        self.bank = bank
 
-        # Define a mapping of bank-specific headers to universal headers
-        self.universal_columns = {
-            ' Posted Transactions Date': 'Date',
-            ' Description1': 'Description',
-            ' Debit Amount': 'Expense',
-            ' Credit Amount': 'Income',
-            'Balance': 'Balance',
-        }
+        # Load header mappings from JSON
+        with open(mapping_file, 'r') as f:
+            mappings = json.load(f)
 
-        # Automatically extract bank-specific headers
+        # Ensure the bank mapping exists; otherwise, fall back to default
+        self.universal_columns = mappings.get(bank, mappings["default"])
         self.headers = list(self.universal_columns.keys())
 
     def load_csv_files(self):
@@ -37,7 +35,8 @@ class TransactionProcessor:
         csv_path = glob.glob(f"{self.input_folder}/Transaction_Export*.csv")
         if not csv_path:
             raise FileNotFoundError("No files found in the input folder matching the pattern!")
-        print("Files loaded successfully.")
+        print(f"Files for bank '{self.bank}' loaded.")
+        print("If you get errors below, check if all your csv headers match")
         return pd.concat(
             [pd.read_csv(file, usecols=self.headers, dtype=str) for file in csv_path],
             ignore_index=True
@@ -85,11 +84,20 @@ class TransactionProcessor:
 
         # Save to a new CSV file
         universal_df.to_csv(self.output_file, index=False)
-        print(f"Universal transactions saved to {self.output_file}.")
+        print(f"Universal transactions saved successfully to {self.output_file}.")
 
 if __name__ == "__main__":
-    # Example usage
-    processor = TransactionProcessor(input_folder="input", output_file="universal_transactions.csv")
+    
+    with open("settings.json", "r") as f:
+        settings_data = json.load(f)
+    mybank = settings_data.get("Bank", "DefaultBank")
+    
+    processor = TransactionProcessor(
+        input_folder = "input",
+        output_file = "universal_transactions.csv",
+        mapping_file = "banks.json",
+        bank = mybank  # Change to the desired bank key
+    )
     try:
         processor.process_transactions()
     except FileNotFoundError as e:
