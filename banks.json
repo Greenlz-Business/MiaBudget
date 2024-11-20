@@ -1,0 +1,23 @@
+{
+    "Example_Bank": {
+        "Header name for Transaction date": "Date",
+        "Header name for transaction name": "Description",
+        "Header name for expense": "Expense",
+        "Header name for income": "Income",
+        "Header name for account balance": "Balance"
+    },
+    "default": {
+        "Date": "Date",
+        "Description": "Description",
+        "Debit Amount": "Expense",
+        "Credit Amount": "Income",
+        "Balance": "Balance"
+    },
+    "AIB": {
+        " Posted Transactions Date": "Date",
+        " Description1": "Description",
+        " Debit Amount": "Expense",
+        " Credit Amount": "Income",
+        "Balance": "Balance"
+    }
+}
