@@ -1,0 +1,14 @@
+{
+    "config": "Settings",
+
+    "Accountname": "Greenlz",
+    "Bank": "AIB",         
+    "Currency": "EUR",  
+    
+    "Job": "NAL HEALTH",
+    "Stocks": "Trading",
+    
+    "Groceries": "ASDA, TESCO, LIDL",
+    "ATM": "VDA, ATM",
+    "Partner": "Revolut" 
+}
