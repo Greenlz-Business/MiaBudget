@@ -13,9 +13,12 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 # Define the relative paths to the target scripts
 converter = os.path.join(current_dir, "converter", "transaction_processor.py")
 extractor = os.path.join(current_dir, "processor", "extractor.py")
+pdfer = os.path.join(current_dir, "crafter", "pdfer.py")
 
 # Execute the target scripts
 with open(converter, 'r') as f:
     exec(f.read())
 with open(extractor, 'r') as f:
     exec(f.read())
+#with open(pdfer, 'r') as f:
+#    exec(f.read())
