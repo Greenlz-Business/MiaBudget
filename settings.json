@@ -1,14 +1,11 @@
 {
-    "config": "Settings",
+    "Config":{
+        "Accountname": "Greenlz",
+        "Bank": "AIB",         
+        "Currency": "EUR"
+    },
 
-    "Accountname": "Greenlz",
-    "Bank": "AIB",         
-    "Currency": "EUR",  
-    
-    "Job": "NAL HEALTH",
-    "Stocks": "Trading",
-    
-    "Groceries": "ASDA, TESCO, LIDL",
-    "ATM": "VDA, ATM",
-    "Partner": "Revolut" 
+    "Supported Banks":{
+        "Allied Irish Bank": "AIB"
+    }
 }

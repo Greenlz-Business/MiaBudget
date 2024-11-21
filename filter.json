@@ -1,0 +1,21 @@
+{
+    "Income": {
+        "Job": "NAL HEALTH"
+    },
+
+    "Expenses": {
+        "Groceries": ["ASDA", "TESCO", "LIDL"],
+        "Coffee": ["STARBUCKS"],
+        "Subscriptions": ["null"],
+        "Partner": ["Revolut", "TransferWise"],
+        "Car": ["SPAR", "DAYBREAK"]
+    },
+
+    "Transfers":{
+        "Stocks": "Trading"
+    },
+
+    "Withdrawals":{
+        "ATM": ["VDA", "ATM"]
+    }
+}
