@@ -90,7 +90,7 @@ if __name__ == "__main__":
     
     with open("settings.json", "r") as f:
         settings_data = json.load(f)
-    mybank = settings_data.get("Bank", "DefaultBank")
+    mybank = settings_data.get("Config", {}).get("Bank", "DefaultBank")     # Useful 
     
     processor = TransactionProcessor(
         input_folder = "input",

@@ -1,0 +1,273 @@
+{
+    "Income": {
+        "Job": [
+            {
+                "Date": "2024-10-11",
+                "Description": "NAL HEALTH IR24100",
+                "Amount": 2464.42
+            },
+            {
+                "Date": "2024-10-25",
+                "Description": "NAL HEALTH IR24102",
+                "Amount": 1712.73
+            },
+            {
+                "Date": "2024-11-08",
+                "Description": "NAL HEALTH IR24110",
+                "Amount": 1143.68
+            }
+        ]
+    },
+    "Expenses": {
+        "Groceries": [
+            {
+                "Date": "2024-10-10",
+                "Description": "VDC-ASDA STORES",
+                "Amount": -6.19
+            },
+            {
+                "Date": "2024-10-11",
+                "Description": "VDC-TESCO STORES 6",
+                "Amount": -3.88
+            }
+        ],
+        "Coffee": [
+            {
+                "Date": "2024-10-08",
+                "Description": "VDC-STARBUCKS",
+                "Amount": -10.52
+            },
+            {
+                "Date": "2024-10-09",
+                "Description": "VDC-STARBUCKS",
+                "Amount": -7.8
+            }
+        ],
+        "Subscriptions": [],
+        "Partner": [
+            {
+                "Date": "2024-10-01",
+                "Description": "VDP-Revolut**3820*",
+                "Amount": -10.0
+            },
+            {
+                "Date": "2024-10-01",
+                "Description": "VDP-Revolut**3820*",
+                "Amount": -40.0
+            },
+            {
+                "Date": "2024-10-07",
+                "Description": "VDP-Revolut**3820*",
+                "Amount": -10.0
+            },
+            {
+                "Date": "2024-10-08",
+                "Description": "VDP-Revolut**3820*",
+                "Amount": -25.0
+            },
+            {
+                "Date": "2024-10-09",
+                "Description": "VDP-Revolut**3820*",
+                "Amount": -10.0
+            },
+            {
+                "Date": "2024-10-11",
+                "Description": "VDP-Revolut**3820*",
+                "Amount": -10.0
+            },
+            {
+                "Date": "2024-10-11",
+                "Description": "VDP-Revolut**3820*",
+                "Amount": -30.0
+            },
+            {
+                "Date": "2024-10-14",
+                "Description": "VDP-Revolut**3820*",
+                "Amount": -100.0
+            },
+            {
+                "Date": "2024-10-14",
+                "Description": "VDP-Revolut**3820*",
+                "Amount": -60.0
+            },
+            {
+                "Date": "2024-10-15",
+                "Description": "VDP-TransferWise",
+                "Amount": -60.68
+            },
+            {
+                "Date": "2024-10-29",
+                "Description": "VDP-Revolut**3820*",
+                "Amount": -60.0
+            },
+            {
+                "Date": "2024-11-11",
+                "Description": "VDP-Revolut**3820*",
+                "Amount": -50.0
+            }
+        ],
+        "Car": [
+            {
+                "Date": "2024-10-07",
+                "Description": "VDC-SPAR EXPRESS T",
+                "Amount": -34.5
+            },
+            {
+                "Date": "2024-10-23",
+                "Description": "VDP-SPAR EXPRESS T",
+                "Amount": -52.09
+            },
+            {
+                "Date": "2024-10-25",
+                "Description": "VDC-DAYBREAK BUNCL",
+                "Amount": -7.6
+            },
+            {
+                "Date": "2024-11-04",
+                "Description": "VDC-DAYBREAK BUNCL",
+                "Amount": -3.64
+            },
+            {
+                "Date": "2024-11-12",
+                "Description": "VDC-SPAR EXPRESS T",
+                "Amount": -31.48
+            }
+        ]
+    },
+    "Transfers": {
+        "Stocks": [
+            {
+                "Date": "2024-10-14",
+                "Description": "VDP-Trading 212",
+                "Amount": -100.7
+            },
+            {
+                "Date": "2024-10-29",
+                "Description": "VDP-Trading 212",
+                "Amount": -100.7
+            },
+            {
+                "Date": "2024-11-11",
+                "Description": "VDP-Trading 212",
+                "Amount": 100.7
+            },
+            {
+                "Date": "2024-11-11",
+                "Description": "VDP-Trading 212",
+                "Amount": 100.7
+            },
+            {
+                "Date": "2024-11-11",
+                "Description": "VDP-Trading 212",
+                "Amount": 100.7
+            },
+            {
+                "Date": "2024-11-11",
+                "Description": "VDP-Trading 212",
+                "Amount": 100.7
+            },
+            {
+                "Date": "2024-11-11",
+                "Description": "VDP-Trading 212",
+                "Amount": 100.7
+            },
+            {
+                "Date": "2024-11-11",
+                "Description": "VDP-Trading 212",
+                "Amount": 100.7
+            },
+            {
+                "Date": "2024-11-11",
+                "Description": "VDP-Trading 212",
+                "Amount": 100.7
+            },
+            {
+                "Date": "2024-11-11",
+                "Description": "VDP-Trading 212",
+                "Amount": 100.7
+            },
+            {
+                "Date": "2024-11-11",
+                "Description": "VDP-Trading 212",
+                "Amount": 120.84
+            },
+            {
+                "Date": "2024-11-11",
+                "Description": "VDP-Trading 212",
+                "Amount": 100.7
+            }
+        ]
+    },
+    "Withdrawals": {
+        "ATM": [
+            {
+                "Date": "2024-10-11",
+                "Description": "VDA-COMMISSION",
+                "Amount": -2.0
+            },
+            {
+                "Date": "2024-10-11",
+                "Description": "VDA-LBG  - BANK CA",
+                "Amount": -49.0
+            },
+            {
+                "Date": "2024-11-08",
+                "Description": "ATM TULLAMORE",
+                "Amount": -20.0
+            },
+            {
+                "Date": "2024-11-08",
+                "Description": "ATM TULLAMOREB",
+                "Amount": -980.0
+            },
+            {
+                "Date": "2024-11-18",
+                "Description": "VDA-Point Cash",
+                "Amount": -250.0
+            },
+            {
+                "Date": "2024-11-18",
+                "Description": "VDA-Point Cash",
+                "Amount": -200.0
+            }
+        ]
+    },
+    "ExampleList": {
+        "Use ExampleList": [],
+        "Category": [
+            {
+                "Date": "2024-10-09",
+                "Description": "VDC-HISTORIC LIVER",
+                "Amount": -12.19
+            },
+            {
+                "Date": "2024-10-10",
+                "Description": "VDC-ASDA STORES",
+                "Amount": -6.19
+            },
+            {
+                "Date": "2024-10-11",
+                "Description": "VDC-TESCO STORES 6",
+                "Amount": -3.88
+            },
+            {
+                "Date": "2024-10-24",
+                "Description": "*MOBI AUTO",
+                "Amount": -200.0
+            },
+            {
+                "Date": "2024-11-04",
+                "Description": "VDC-PADRAIG DENTON",
+                "Amount": -60.0
+            }
+        ],
+        "Example Groceries": [
+            {
+                "Date": "2024-10-11",
+                "Description": "VDC-TESCO STORES 6",
+                "Amount": -3.88
+            }
+        ],
+        "Example Cat Food": []
+    }
+}
