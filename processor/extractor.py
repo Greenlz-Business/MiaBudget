@@ -9,6 +9,11 @@ def extract_data(csv_file, json_file):
     
     # Initialize data structure for categorized data
     categorized_data = {
+        "Statistics": {
+            "Total Income": 0.0,
+            "Total Expenses": 0.0,
+            "Total Transactions": 0
+        },
         "Income": {},
         "Expenses": {},
         "Transfers": {},
@@ -30,7 +35,16 @@ def extract_data(csv_file, json_file):
             expense = float(row["Expense"])
             income = float(row["Income"])
             amount = income if income > 0 else -expense
-            
+
+            # Update statistics
+            if income > 0:
+                categorized_data["Statistics"]["Total Income"] = round(categorized_data["Statistics"]["Total Income"] + income, 2)
+            if expense > 0:
+                categorized_data["Statistics"]["Total Expenses"] = round(categorized_data["Statistics"]["Total Expenses"] + expense, 2)
+                
+             # Increment total transactions count
+            categorized_data["Statistics"]["Total Transactions"] += 1
+
             # Check each category for matching keywords
             for main_category, subcategories in filters.items():
                 for subcategory, keywords in subcategories.items():

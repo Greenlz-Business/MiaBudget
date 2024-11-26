@@ -1,4 +1,9 @@
 {
+    "Statistics": {
+        "Total Income": 7067.97,
+        "Total Expenses": 6423.94,
+        "Total Transactions": 137
+    },
     "Income": {
         "Job": [
             {
@@ -231,43 +236,5 @@
                 "Amount": -200.0
             }
         ]
-    },
-    "ExampleList": {
-        "Use ExampleList": [],
-        "Category": [
-            {
-                "Date": "2024-10-09",
-                "Description": "VDC-HISTORIC LIVER",
-                "Amount": -12.19
-            },
-            {
-                "Date": "2024-10-10",
-                "Description": "VDC-ASDA STORES",
-                "Amount": -6.19
-            },
-            {
-                "Date": "2024-10-11",
-                "Description": "VDC-TESCO STORES 6",
-                "Amount": -3.88
-            },
-            {
-                "Date": "2024-10-24",
-                "Description": "*MOBI AUTO",
-                "Amount": -200.0
-            },
-            {
-                "Date": "2024-11-04",
-                "Description": "VDC-PADRAIG DENTON",
-                "Amount": -60.0
-            }
-        ],
-        "Example Groceries": [
-            {
-                "Date": "2024-10-11",
-                "Description": "VDC-TESCO STORES 6",
-                "Amount": -3.88
-            }
-        ],
-        "Example Cat Food": []
     }
 }
