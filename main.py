@@ -20,5 +20,5 @@ with open(converter, 'r') as f:
     exec(f.read())
 with open(extractor, 'r') as f:
     exec(f.read())
-#with open(pdfer, 'r') as f:
-#    exec(f.read())
+with open(pdfer, 'r') as f:
+    exec(f.read())
