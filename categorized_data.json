@@ -1,7 +1,20 @@
 {
     "Statistics": {
-        "Total Income": 7067.97,
-        "Total Expenses": 6423.94
+        "Total Income": 7067.969999999998,
+        "Total Expenses": 6423.939999999998,
+        "Total Transactions": 137,
+        "Starting Balance": 162.08,
+        "Ending Balance": 1066.11,
+        "Average Daily Spending": 214.13,
+        "Average Daily Income": 235.6,
+        "Most Expensive Day": {
+            "Date": "2024-10-14",
+            "Amount": 1388.14
+        },
+        "Item with Highest Total Spending": {
+            "Description": "*MOBI SAVINGS",
+            "Total Amount": 1203.4
+        }
     },
     "Income": {
         "Job": [

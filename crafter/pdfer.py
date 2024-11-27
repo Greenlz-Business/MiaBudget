@@ -4,6 +4,10 @@ import pandas as pd
 from datetime import datetime
 import csv
 
+# Get the current time and date
+now = datetime.now()
+formatted_time_date = now.strftime("%H:%M:%S,       %d, %b, %Y")  # Time and Date
+
 # Load and process date range from the CSV
 def load_date_range(csv_file):
     df = pd.read_csv(csv_file)
@@ -21,6 +25,37 @@ def load_settings():
     currency = settings["Config"]["Currency"]
     return account_name, bank_format, currency
 
+# Load Categorized Data Json
+def load_categorized_data():
+    with open("categorized_data.json", "r") as file:
+        data = json.load(file)
+    total_income = f"{data['Statistics']['Total Income']:,.2f}"
+    total_expense = f"{data['Statistics']['Total Expenses']:,.2f}"
+    total_transactions = data["Statistics"]["Total Transactions"]
+    total_outcome = f"{(data['Statistics']['Total Income']) - (data['Statistics']['Total Expenses']):,.2f}"     # Outcome = Cashflow
+    starting_balance = data["Statistics"]["Starting Balance"]
+    ending_balance = data["Statistics"]["Ending Balance"]
+    daily_spending = data["Statistics"]["Average Daily Spending"]
+    daily_income = data["Statistics"]["Average Daily Income"]
+    
+    most_expensive_day = data['Statistics'].get('Most Expensive Day', {})
+    expensive_date = most_expensive_day.get('Date', 'N/A')
+    expensive_amount = f"{most_expensive_day.get('Amount', 0):,.2f}"
+    
+    # Format the date if it's not 'N/A'
+    if expensive_date != 'N/A':
+        try:
+            parsed_date = datetime.strptime(expensive_date, "%Y-%m-%d")
+            expensive_date = parsed_date.strftime("%d, %b, %Y")  
+        except ValueError:
+            expensive_date = "Invalid Date"
+    
+    total_item = data['Statistics'].get('Item with Highest Total Spending', {})
+    total_item_desc = total_item.get('Description', 'N/A')
+    total_item_amount = f"{total_item.get('Total Amount', 'N/A'):,.2f}"
+    
+    return total_income, total_expense, total_transactions, total_outcome, starting_balance, ending_balance, daily_spending, daily_income, expensive_date, expensive_amount, total_item_desc, total_item_amount
+    
 # Cover
 def add_cover_page(pdf, w):
     pdf.add_page()
@@ -45,7 +80,7 @@ def add_disclaimer_page(pdf, w):
     pdf.cell(0, 1, '1', border=0, align='C')
 
 # 2 Page
-def add_overview_page(pdf, w, oldest_date_str, newest_date_str, account_name, bank_format, currency):
+def add_overview_page(pdf, w, oldest_date_str, newest_date_str, account_name, bank_format, currency, total_transactions, total_income, total_expense, total_outcome, starting_balance, ending_balance, daily_spending, daily_income, expensive_date, expensive_amount, total_item_desc, total_item_amount):
     pdf.add_page()
     pdf.set_xy(((w/2)-(70/2)), 13)                          # Header
     pdf.set_font('helvetica', 'B', 16)                      # Header
@@ -56,34 +91,123 @@ def add_overview_page(pdf, w, oldest_date_str, newest_date_str, account_name, ba
     
     pdf.set_font('helvetica', 'B', 13)                          # Account Name
     pdf.set_xy(20, 70)                                          # Account Name
-    pdf.cell(40, 10, 'Account Name:', border=1, align='C')      # Account Name     
+    pdf.cell(40, 10, 'Account Name:', border=0, align='L')      # Account Name     
     pdf.set_font('helvetica', '', 13)                           # Account Name
     pdf.set_xy(70, 70)                                          # Account Name
-    pdf.cell(120, 10, account_name, border=1, align='L')        # Account Name
-    
+    pdf.cell(120, 10, account_name, border=0, align='C')        # Account Name
     pdf.set_font('helvetica', 'B', 13)                          # Bank Format
     pdf.set_xy(20, 80)                                          # Bank Format
-    pdf.cell(40, 10, 'Bank Format:', border=1, align='C')       # Bank Format  
-    
+    pdf.cell(40, 10, 'Bank Format:', border=0, align='L')       # Bank Format  
     pdf.set_font('helvetica', '', 13)                           # Account Name
     pdf.set_xy(70, 80)                                          # Account Name
-    pdf.cell(120, 10, bank_format, border=1, align='L')         # Account Name
-    
+    pdf.cell(120, 10, bank_format, border=0, align='C')         # Account Name
     pdf.set_font('helvetica', 'B', 13)                          # Currency
     pdf.set_xy(20, 90)                                          # Currency
-    pdf.cell(40, 10, 'Currency:', border=1, align='C')           # Currency 
+    pdf.cell(40, 10, 'Currency:', border=0, align='L')          # Currency 
+    pdf.set_font('helvetica', '', 13)                           # Currency
+    pdf.set_xy(70, 90)                                          # Currency
+    pdf.cell(120, 10, currency, border=0, align='C')            # Currency
+    pdf.set_font('helvetica', 'B', 13)                                      # Transactions Amount
+    pdf.set_xy(20, 110)                                                     # Transactions Amount
+    pdf.cell(40, 10, 'Amount of Transactions:', border=0, align='L')           # Transactions Amount 
+    pdf.set_font('helvetica', '', 13)                                       # Transactions Amount
+    pdf.set_xy(70, 110)                                                     # Transactions Amount
+    pdf.cell(120, 10, str(total_transactions), border=0, align='C')         # Transactions Amount
+    pdf.set_font('helvetica', 'B', 13)                                      # Total Income
+    pdf.set_xy(20, 120)                                                     # Total Income
+    pdf.cell(40, 10, 'Total Income:', border=0, align='L')                  # Total Income 
+    pdf.set_font('helvetica', '', 13)                                                        # Total Income
+    pdf.set_xy(70, 120)                                                                      # Total Income
+    pdf.cell(120, 10, str(total_income) + " " + currency, border=0, align='C')               # Total Income
+    pdf.set_font('helvetica', 'B', 13)                                      # Total Expense
+    pdf.set_xy(20, 130)                                                     # Total Expense
+    pdf.cell(40, 10, 'Total Expense:', border=0, align='L')                 # Total Expense
+    pdf.set_font('helvetica', '', 13)                                                        # Total Expense
+    pdf.set_xy(70, 130)                                                                      # Total Expense
+    pdf.cell(120, 10, str(total_expense) + " " + currency, border=0, align='C')              # Total Expense
+    pdf.set_font('helvetica', 'B', 13)                                      # Total Outcome
+    pdf.set_xy(20, 140)                                                     # Total Outcome
+    pdf.cell(40, 10, 'Total Cashflow:', border=0, align='L')                 # Total Outcome
+    pdf.set_font('helvetica', '', 13)                                                        # Total Outcome
+    pdf.set_xy(70, 140)                                                                      # Total Outcome
+    pdf.cell(120, 10, str(total_outcome) + " " + currency, border=0, align='C')              # Total Outcome
+    pdf.set_font('helvetica', 'B', 13)                                          # Opening Balance
+    pdf.set_xy(20, 160)                                                         # Opening Balance
+    pdf.cell(40, 10, 'Opening Balance:', border=0, align='L')                   # Opening Balance
+    pdf.set_font('helvetica', '', 13)                                                        # Opening Balance
+    pdf.set_xy(70, 160)                                                                      # Opening Balance
+    pdf.cell(120, 10, str(starting_balance) + " " + currency, border=0, align='C')           # Opening Balance
+    pdf.set_font('helvetica', 'B', 13)                                          # Ending Balance
+    pdf.set_xy(20, 170)                                                         # Ending Balance
+    pdf.cell(40, 10, 'Ending Balance:', border=0, align='L')                   # Ending Balance
+    pdf.set_font('helvetica', '', 13)                                                        # Ending Balance
+    pdf.set_xy(70, 170)                                                                      # Ending Balance
+    pdf.cell(120, 10, str(ending_balance) + " " + currency, border=0, align='C')              # Ending Balance
+    pdf.set_font('helvetica', 'B', 13)                                                  # Average Daily income
+    pdf.set_xy(20, 190)                                                                 # Average Daily income
+    pdf.cell(40, 10, 'Average Daily Income:', border=0, align='L')                    # Average Daily income
+    pdf.set_font('helvetica', '', 13)                                                        # Average Daily income
+    pdf.set_xy(70, 190)                                                                      # Average Daily income
+    pdf.cell(120, 10, str(daily_income) + " " + currency, border=0, align='C')              # Average Daily income
+    pdf.set_font('helvetica', 'B', 13)                                                  # Average Daily Spending
+    pdf.set_xy(20, 200)                                                                 # Average Daily Spending
+    pdf.cell(40, 10, 'Average Daily Spending:', border=0, align='L')                    # Average Daily Spending
+    pdf.set_font('helvetica', '', 13)                                                        # Average Daily Spending
+    pdf.set_xy(70, 200)                                                                      # Average Daily Spending
+    pdf.cell(120, 10, str(daily_spending) + " " + currency, border=0, align='C')              # Average Daily Spending
+    pdf.set_font('helvetica', 'B', 13)                                                  # Average Daily Spending
+    pdf.set_xy(20, 210)                                                                 # Average Daily Spending
+    pdf.cell(40, 10, 'Average Daily Cashflow:', border=0, align='L')                    # Average Daily Spending
+    pdf.set_font('helvetica', '', 13)                                                        # Average Daily Spending
+    pdf.set_xy(70, 210)                                                                      # Average Daily Spending
+    pdf.cell(120, 10, str(daily_income-daily_spending) + " " + currency, border=0, align='C')              # Average Daily Spending
+    pdf.set_font('helvetica', 'B', 13)                                                  # Most Expensive Day and Amount
+    pdf.set_xy(20, 230)                                                                 # Most Expensive Day and Amount
+    pdf.cell(40, 10, 'Most Expensive Day & Amount:', border=0, align='L')                    # Most Expensive Day and Amount
+    pdf.set_font('helvetica', '', 13)                                                                       # Most Expensive Day and Amount
+    pdf.set_xy(70, 230)                                                                                     # Most Expensive Day and Amount
+    pdf.cell(120, 10,  expensive_date + "   " + str(expensive_amount) + " " + currency, border=0, align='C')               # Most Expensive Day and Amount
     
-    pdf.set_font('helvetica', '', 13)                           # Account Name
-    pdf.set_xy(70, 90)                                          # Account Name
-    pdf.cell(120, 10, currency, border=1, align='L')            # Account Name
+    pdf.set_font('helvetica', 'B', 13)                                                  # Most Expensive Item
+    pdf.set_xy(20, 240)                                                                 # Most Expensive Item
+    pdf.cell(40, 10, 'Item with Highest Total:', border=0, align='L')                    # Most Expensive Item
+    
+    pdf.set_font('helvetica', '', 13)                                                                       # Most Expensive Item
+    pdf.set_xy(70, 240)                                                                                     # Most Expensive Item
+    pdf.cell(120, 10,  total_item_desc, border=0, align='C')               # Most Expensive Item
+    
+    pdf.set_font('helvetica', 'B', 13)                                                  # Most Expensive Item
+    pdf.set_xy(20, 250)                                                                 # Most Expensive Item
+    pdf.cell(40, 10, 'Total Spent on Item:', border=0, align='L')                    # Most Expensive Item
+    
+    pdf.set_font('helvetica', '', 13)                                                                       # Most Expensive Item
+    pdf.set_xy(70, 250)                                                                                     # Most Expensive Item
+    pdf.cell(120, 10,  str(total_item_amount) + " " + currency, border=0, align='C')               # Most Expensive Item
     
     
+    pdf.set_font('helvetica', 'B', 13)                                                  # Time and Date
+    pdf.set_xy(20, 55)                                                                 # Time and Date
+    pdf.cell(40, 10, 'Time and Date of Report:', border=0, align='L')                   # Time and Date
+    pdf.set_font('helvetica', 'I', 13)                                                  # Time and Date
+    pdf.set_xy(70, 55)                                                                # Time and Date
+    pdf.cell(120, 10, formatted_time_date, border=0, align='C')                        # Time and Date
     
     pdf.set_xy(10, 275)                                 # Page number
     pdf.set_font('helvetica', '', 12)                   # Page number
     pdf.cell(0, 1, '2', border=0, align='C')            # Page number
 
 # 3 Page
+def add_budgetgraph_page(pdf, w):
+    pdf.add_page()
+    pdf.set_xy(((w/2)-(70/2)), 13)
+    pdf.set_font('helvetica', 'B', 16)
+    pdf.cell(70, 15, 'Budget Graph', border=0, align='C')
+    pdf.image("budgetgraph.jpg", w=172, x=20, y=70)
+    pdf.set_xy(10, 275)
+    pdf.set_font('helvetica', '', 12)
+    pdf.cell(0, 1, '3', border=0, align='C')
+    
+# Other Pages
 def add_budgetgraph_page(pdf, w):
     pdf.add_page()
     pdf.set_xy(((w/2)-(70/2)), 13)
@@ -100,10 +224,11 @@ def create_pdf(output_file, csv_file):
     pdf = FPDF('P', 'mm', 'A4')
     w, h = 210, 297
     account_name, bank_format, currency = load_settings()
+    total_income, total_expense, total_transactions, total_outcome, starting_balance, ending_balance, daily_spending, daily_income, expensive_date, expensive_amount, total_item_desc, total_item_amount = load_categorized_data()
 
     add_cover_page(pdf, w)
     add_disclaimer_page(pdf, w)
-    add_overview_page(pdf, w, oldest_date_str, newest_date_str, account_name, bank_format, currency)
+    add_overview_page(pdf, w, oldest_date_str, newest_date_str, account_name, bank_format, currency, total_transactions, total_income, total_expense, total_outcome, starting_balance, ending_balance, daily_spending, daily_income, expensive_date, expensive_amount, total_item_desc, total_item_amount)
     add_budgetgraph_page(pdf, w)
 
     pdf.output(output_file)
