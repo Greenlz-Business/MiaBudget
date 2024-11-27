@@ -75,9 +75,6 @@ def add_disclaimer_page(pdf, w):
     pdf.set_xy(25, 60)
     pdf.set_font('helvetica', '', 12)
     pdf.multi_cell(w-50, 7, R"This budget app is a personal project designed to convert bank statements into easy-to-understand budget reports with graphs. While every effort has been made to ensure the accuracy of the generated PDF file, errors may occur in the processing of data. The viewer is advised to double-check the budget details and confirm the accuracy of the information presented. The app creator is not responsible for any financial errors or discrepancies resulting from the use of this tool.", border=0, align='J')
-    pdf.set_xy(10, 275)
-    pdf.set_font('helvetica', '', 12)
-    pdf.cell(0, 1, '1', border=0, align='C')
 
 # 2 Page
 def add_overview_page(pdf, w, oldest_date_str, newest_date_str, account_name, bank_format, currency, total_transactions, total_income, total_expense, total_outcome, starting_balance, ending_balance, daily_spending, daily_income, expensive_date, expensive_amount, total_item_desc, total_item_amount):
@@ -139,7 +136,7 @@ def add_overview_page(pdf, w, oldest_date_str, newest_date_str, account_name, ba
     pdf.cell(120, 10, str(starting_balance) + " " + currency, border=0, align='C')           # Opening Balance
     pdf.set_font('helvetica', 'B', 13)                                          # Ending Balance
     pdf.set_xy(20, 170)                                                         # Ending Balance
-    pdf.cell(40, 10, 'Ending Balance:', border=0, align='L')                   # Ending Balance
+    pdf.cell(40, 10, 'Closing Balance:', border=0, align='L')                   # Ending Balance
     pdf.set_font('helvetica', '', 13)                                                        # Ending Balance
     pdf.set_xy(70, 170)                                                                      # Ending Balance
     pdf.cell(120, 10, str(ending_balance) + " " + currency, border=0, align='C')              # Ending Balance
@@ -192,10 +189,6 @@ def add_overview_page(pdf, w, oldest_date_str, newest_date_str, account_name, ba
     pdf.set_xy(70, 55)                                                                # Time and Date
     pdf.cell(120, 10, formatted_time_date, border=0, align='C')                        # Time and Date
     
-    pdf.set_xy(10, 275)                                 # Page number
-    pdf.set_font('helvetica', '', 12)                   # Page number
-    pdf.cell(0, 1, '2', border=0, align='C')            # Page number
-
 # 3 Page
 def add_budgetgraph_page(pdf, w):
     pdf.add_page()
@@ -208,15 +201,97 @@ def add_budgetgraph_page(pdf, w):
     pdf.cell(0, 1, '3', border=0, align='C')
     
 # Other Pages
-def add_budgetgraph_page(pdf, w):
+def add_other_pages(pdf, w):
+    with open("categorized_data.json", "r") as file:
+        data = json.load(file)
+
+    categories = ["Income", "Expenses", "Transfers", "Withdrawals"]
+    uncategorized = data.get("Uncategorized", [])  # Get uncategorized transactions
     pdf.add_page()
-    pdf.set_xy(((w/2)-(70/2)), 13)
+    pdf.set_xy(((w / 2) - (70 / 2)), 13)
     pdf.set_font('helvetica', 'B', 16)
-    pdf.cell(70, 15, 'Budget Graph', border=0, align='C')
-    pdf.image("budgetgraph.jpg", w=172, x=20, y=70)
-    pdf.set_xy(10, 275)
-    pdf.set_font('helvetica', '', 12)
-    pdf.cell(0, 1, '3', border=0, align='C')
+    pdf.cell(70, 15, 'Budget Breakdown', border=0, align='C')
+
+    y_position = 30  # Start position for the table content
+    page_number = 4  # Starting page number for this section
+
+    # Helper function to format dates
+    def format_date(date_str):
+        try:
+            date_obj = datetime.strptime(date_str, "%Y-%m-%d")
+            return date_obj.strftime("%d, %b, %Y")
+        except ValueError:
+            return "Invalid Date"
+
+    # Iterate over categories
+    for category in categories:
+        if category in data:
+            # Category Header
+            if y_position > 260:
+                pdf.add_page()
+                y_position = 20
+                page_number += 1
+
+            pdf.set_xy(20, y_position)
+            pdf.set_font('helvetica', 'B', 14)
+            pdf.cell(170, 10, category, border=1, align='C')
+            y_position += 10
+
+            # Subcategories and their transactions
+            for subcategory, transactions in data[category].items():
+                if transactions:  # Ensure the subcategory has transactions
+                    if y_position > 260:
+                        pdf.add_page()
+                        y_position = 20
+                        page_number += 1
+
+                    pdf.set_xy(20, y_position)
+                    pdf.set_font('helvetica', 'B', 11)
+                    pdf.cell(170, 10, subcategory, border=0, align='L')
+                    y_position += 10
+
+                    # Transactions within the subcategory
+                    for transaction in transactions:
+                        if y_position > 260:
+                            pdf.add_page()
+                            y_position = 20
+                            page_number += 1
+
+                        pdf.set_xy(20, y_position)
+                        pdf.set_font('helvetica', '', 10)
+                        formatted_date = format_date(transaction["Date"])
+                        pdf.cell(30, 10, formatted_date, border=0, align='C')
+                        pdf.cell(100, 10, transaction["Description"], border=0, align='L')
+                        pdf.cell(40, 10, f"{transaction['Amount']:,.2f}", border=0, align='R')
+                        y_position += 10
+
+    # Add uncategorized transactions section
+    if uncategorized:
+        if y_position > 260:
+            pdf.add_page()
+            y_position = 20
+            page_number += 1
+
+        # Uncategorize Header
+        pdf.set_xy(20, y_position)
+        pdf.set_font('helvetica', 'B', 14)
+        pdf.cell(170, 10, 'Uncategorized Transactions', border=1, align='C')
+        y_position += 10
+
+        # Adding uncategorized transactions to the table
+        for transaction in uncategorized:
+            if y_position > 260:
+                pdf.add_page()
+                y_position = 20
+                page_number += 1
+
+            pdf.set_xy(20, y_position)
+            pdf.set_font('helvetica', '', 10)
+            formatted_date = format_date(transaction["Date"])
+            pdf.cell(30, 10, formatted_date, border=0, align='C')
+            pdf.cell(100, 10, transaction["Description"], border=0, align='L')
+            pdf.cell(40, 10, f"{transaction['Amount']:,.2f}", border=0, align='R')
+            y_position += 10
 
 # Main script
 def create_pdf(output_file, csv_file):
@@ -230,6 +305,7 @@ def create_pdf(output_file, csv_file):
     add_disclaimer_page(pdf, w)
     add_overview_page(pdf, w, oldest_date_str, newest_date_str, account_name, bank_format, currency, total_transactions, total_income, total_expense, total_outcome, starting_balance, ending_balance, daily_spending, daily_income, expensive_date, expensive_amount, total_item_desc, total_item_amount)
     add_budgetgraph_page(pdf, w)
+    add_other_pages(pdf, w)
 
     pdf.output(output_file)
 

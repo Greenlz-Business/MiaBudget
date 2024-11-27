@@ -25,7 +25,8 @@ def extract_data(csv_file, json_file):
         "Income": {},
         "Expenses": {},
         "Transfers": {},
-        "Withdrawals": {}
+        "Withdrawals": {},
+        "Uncategorized": []  # Add this line for uncategorized transactions
     }
     
     # Dictionary to track daily expenses
@@ -76,6 +77,8 @@ def extract_data(csv_file, json_file):
             # Increment total transactions count
             categorized_data["Statistics"]["Total Transactions"] += 1
 
+            matched = False  # Track if the transaction was categorized
+
             # Check each category for matching keywords
             for main_category, subcategories in filters.items():
                 for subcategory, keywords in subcategories.items():
@@ -86,6 +89,7 @@ def extract_data(csv_file, json_file):
                                 "Description": description,
                                 "Amount": amount
                             })
+                            matched = True
                     elif isinstance(keywords, str):
                         if keywords.upper() in description.upper():
                             categorized_data[main_category][subcategory].append({
@@ -93,6 +97,15 @@ def extract_data(csv_file, json_file):
                                 "Description": description,
                                 "Amount": amount
                             })
+                            matched = True
+
+            # Add to uncategorized if not matched
+            if not matched:
+                categorized_data["Uncategorized"].append({
+                    "Date": date,
+                    "Description": description,
+                    "Amount": amount
+                })
 
     # Calculate starting and ending balances
     if transactions:

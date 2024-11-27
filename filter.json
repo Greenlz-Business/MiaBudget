@@ -6,7 +6,7 @@
     "Expenses": {
         "Groceries": ["ASDA", "TESCO", "LIDL"],
         "Coffee": ["STARBUCKS"],
-        "Subscriptions": ["null"],
+        "Subscriptions": ["SOLIDWORKS"],
         "Partner": ["Revolut", "TransferWise"],
         "Car": ["SPAR", "DAYBREAK"]
     },
