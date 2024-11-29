@@ -192,13 +192,10 @@ def add_overview_page(pdf, w, oldest_date_str, newest_date_str, account_name, ba
 # 3 Page
 def add_budgetgraph_page(pdf, w):
     pdf.add_page()
-    pdf.set_xy(((w/2)-(70/2)), 13)
+    pdf.set_xy(((w/2)-35), 13)
     pdf.set_font('helvetica', 'B', 16)
-    pdf.cell(70, 15, 'Budget Graph', border=0, align='C')
-    pdf.image("budgetgraph.jpg", w=172, x=20, y=70)
-    pdf.set_xy(10, 275)
-    pdf.set_font('helvetica', '', 12)
-    pdf.cell(0, 1, '3', border=0, align='C')
+    pdf.cell(75, 15, 'Budget Graph', border=0, align='C')
+    pdf.image("budgetgraph.jpg", w=178, x=15, y=90)
     
 # Other Pages
 def add_other_pages(pdf, w):

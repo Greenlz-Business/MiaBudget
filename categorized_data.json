@@ -48,6 +48,128 @@
                 "Amount": -3.88
             }
         ],
+        "Restaurants": [
+            {
+                "Date": "2024-10-02",
+                "Description": "VDC-ISS CARDINAL H",
+                "Amount": -7.7
+            },
+            {
+                "Date": "2024-10-03",
+                "Description": "VDC-ISS CARDINAL H",
+                "Amount": -0.95
+            },
+            {
+                "Date": "2024-10-03",
+                "Description": "VDC-ISS CARDINAL H",
+                "Amount": -3.5
+            },
+            {
+                "Date": "2024-10-04",
+                "Description": "VDC-ISS CARDINAL H",
+                "Amount": -3.7
+            },
+            {
+                "Date": "2024-10-04",
+                "Description": "VDC-ISS CARDINAL H",
+                "Amount": -7.8
+            },
+            {
+                "Date": "2024-10-07",
+                "Description": "VDC-ISS CARDINAL H",
+                "Amount": -7.0
+            },
+            {
+                "Date": "2024-10-09",
+                "Description": "VDP-JD WETHERSPOON",
+                "Amount": -10.83
+            },
+            {
+                "Date": "2024-10-09",
+                "Description": "VDP-JD WETHERSPOON",
+                "Amount": -10.83
+            },
+            {
+                "Date": "2024-10-09",
+                "Description": "VDP-JD WETHERSPOON",
+                "Amount": -11.79
+            },
+            {
+                "Date": "2024-10-09",
+                "Description": "VDP-JD WETHERSPOON",
+                "Amount": -13.23
+            },
+            {
+                "Date": "2024-10-09",
+                "Description": "VDP-JD WETHERSPOON",
+                "Amount": -10.83
+            },
+            {
+                "Date": "2024-10-09",
+                "Description": "VDP-JD WETHERSPOON",
+                "Amount": -18.44
+            },
+            {
+                "Date": "2024-10-09",
+                "Description": "VDC-SUBWAY 55491-1",
+                "Amount": -17.05
+            },
+            {
+                "Date": "2024-10-10",
+                "Description": "VDP-JD WETHERSPOON",
+                "Amount": -17.93
+            },
+            {
+                "Date": "2024-10-10",
+                "Description": "VDP-JD WETHERSPOON",
+                "Amount": -9.98
+            },
+            {
+                "Date": "2024-10-14",
+                "Description": "VDP-JD WETHERSPOON",
+                "Amount": -16.86
+            },
+            {
+                "Date": "2024-10-16",
+                "Description": "VDC-ISS CARDINAL H",
+                "Amount": -7.25
+            },
+            {
+                "Date": "2024-10-16",
+                "Description": "VDC-ISS CARDINAL H",
+                "Amount": -6.1
+            },
+            {
+                "Date": "2024-10-17",
+                "Description": "VDC-ISS CARDINAL H",
+                "Amount": -5.0
+            },
+            {
+                "Date": "2024-10-17",
+                "Description": "VDC-ISS CARDINAL H",
+                "Amount": -5.95
+            },
+            {
+                "Date": "2024-10-17",
+                "Description": "VDC-ISS CARDINAL H",
+                "Amount": -3.9
+            },
+            {
+                "Date": "2024-10-18",
+                "Description": "VDC-ISS CARDINAL H",
+                "Amount": -7.6
+            },
+            {
+                "Date": "2024-10-18",
+                "Description": "VDC-ISS CARDINAL H",
+                "Amount": -4.6
+            },
+            {
+                "Date": "2024-10-30",
+                "Description": "VDC-THE CHARCOAL G",
+                "Amount": -25.8
+            }
+        ],
         "Coffee": [
             {
                 "Date": "2024-10-08",
@@ -58,6 +180,11 @@
                 "Date": "2024-10-09",
                 "Description": "VDC-STARBUCKS",
                 "Amount": -7.8
+            },
+            {
+                "Date": "2024-11-05",
+                "Description": "VDC-THE FOXY BEAN",
+                "Amount": -4.0
             }
         ],
         "Subscriptions": [
@@ -65,6 +192,11 @@
                 "Date": "2024-10-14",
                 "Description": "*INET SOLIDWORKS",
                 "Amount": -1050.0
+            },
+            {
+                "Date": "2024-10-21",
+                "Description": "D/D THREE IRELAND",
+                "Amount": -39.0
             }
         ],
         "Partner": [
@@ -141,6 +273,11 @@
                 "Amount": -52.09
             },
             {
+                "Date": "2024-10-24",
+                "Description": "VDC-APPLEGREEN BUN",
+                "Amount": -4.5
+            },
+            {
                 "Date": "2024-10-25",
                 "Description": "VDC-DAYBREAK BUNCL",
                 "Amount": -7.6
@@ -152,8 +289,65 @@
             },
             {
                 "Date": "2024-11-12",
+                "Description": "VDC-WWW.PARKINGPAY",
+                "Amount": -2.0
+            },
+            {
+                "Date": "2024-11-12",
                 "Description": "VDC-SPAR EXPRESS T",
                 "Amount": -31.48
+            },
+            {
+                "Date": "2024-11-12",
+                "Description": "VDC-WWW.PARKINGPAY",
+                "Amount": -2.2
+            }
+        ],
+        "Online Shopping": [
+            {
+                "Date": "2024-10-14",
+                "Description": "VDP-FACEBK *QZUUEC",
+                "Amount": -2.46
+            },
+            {
+                "Date": "2024-10-14",
+                "Description": "VDP-FACEBK *Z2RNFC",
+                "Amount": -2.46
+            },
+            {
+                "Date": "2024-10-14",
+                "Description": "VDP-FACEBK *TC23GC",
+                "Amount": -2.46
+            },
+            {
+                "Date": "2024-10-18",
+                "Description": "VDP-WWW.AMAZON.* T",
+                "Amount": -23.83
+            },
+            {
+                "Date": "2024-10-21",
+                "Description": "VDP-AMZNMktplace*T",
+                "Amount": -15.2
+            },
+            {
+                "Date": "2024-10-22",
+                "Description": "VDP-Twitch Interac",
+                "Amount": -1.65
+            },
+            {
+                "Date": "2024-10-29",
+                "Description": "VDP-AMZNMktplace*T",
+                "Amount": -39.75
+            },
+            {
+                "Date": "2024-11-01",
+                "Description": "VDP-AMZNMktplace*T",
+                "Amount": -37.36
+            },
+            {
+                "Date": "2024-11-11",
+                "Description": "VDP-STEAMGAMES.COM",
+                "Amount": -1.86
             }
         ]
     },
@@ -234,6 +428,11 @@
                 "Amount": -49.0
             },
             {
+                "Date": "2024-10-18",
+                "Description": "WITHDRAWAL",
+                "Amount": -150.5
+            },
+            {
                 "Date": "2024-11-08",
                 "Description": "ATM TULLAMORE",
                 "Amount": -20.0
@@ -257,39 +456,9 @@
     },
     "Uncategorized": [
         {
-            "Date": "2024-10-02",
-            "Description": "VDC-ISS CARDINAL H",
-            "Amount": -7.7
-        },
-        {
             "Date": "2024-10-03",
             "Description": "SAVINGS",
             "Amount": -10.0
-        },
-        {
-            "Date": "2024-10-03",
-            "Description": "VDC-ISS CARDINAL H",
-            "Amount": -0.95
-        },
-        {
-            "Date": "2024-10-03",
-            "Description": "VDC-ISS CARDINAL H",
-            "Amount": -3.5
-        },
-        {
-            "Date": "2024-10-04",
-            "Description": "VDC-ISS CARDINAL H",
-            "Amount": -3.7
-        },
-        {
-            "Date": "2024-10-04",
-            "Description": "VDC-ISS CARDINAL H",
-            "Amount": -7.8
-        },
-        {
-            "Date": "2024-10-07",
-            "Description": "VDC-ISS CARDINAL H",
-            "Amount": -7.0
         },
         {
             "Date": "2024-10-07",
@@ -308,26 +477,6 @@
         },
         {
             "Date": "2024-10-09",
-            "Description": "VDP-JD WETHERSPOON",
-            "Amount": -10.83
-        },
-        {
-            "Date": "2024-10-09",
-            "Description": "VDP-JD WETHERSPOON",
-            "Amount": -10.83
-        },
-        {
-            "Date": "2024-10-09",
-            "Description": "VDP-JD WETHERSPOON",
-            "Amount": -11.79
-        },
-        {
-            "Date": "2024-10-09",
-            "Description": "VDP-JD WETHERSPOON",
-            "Amount": -13.23
-        },
-        {
-            "Date": "2024-10-09",
             "Description": "VDC-FIRST SOUTH YO",
             "Amount": -2.44
         },
@@ -340,21 +489,6 @@
             "Date": "2024-10-09",
             "Description": "VDC-ST JOHN'S BEAC",
             "Amount": -8.53
-        },
-        {
-            "Date": "2024-10-09",
-            "Description": "VDP-JD WETHERSPOON",
-            "Amount": -10.83
-        },
-        {
-            "Date": "2024-10-09",
-            "Description": "VDP-JD WETHERSPOON",
-            "Amount": -18.44
-        },
-        {
-            "Date": "2024-10-09",
-            "Description": "VDC-SUBWAY 55491-1",
-            "Amount": -17.05
         },
         {
             "Date": "2024-10-09",
@@ -375,16 +509,6 @@
             "Date": "2024-10-10",
             "Description": "VDC-FIRST SOUTH YO",
             "Amount": -2.43
-        },
-        {
-            "Date": "2024-10-10",
-            "Description": "VDP-JD WETHERSPOON",
-            "Amount": -17.93
-        },
-        {
-            "Date": "2024-10-10",
-            "Description": "VDP-JD WETHERSPOON",
-            "Amount": -9.98
         },
         {
             "Date": "2024-10-10",
@@ -448,16 +572,6 @@
         },
         {
             "Date": "2024-10-14",
-            "Description": "VDP-FACEBK *QZUUEC",
-            "Amount": -2.46
-        },
-        {
-            "Date": "2024-10-14",
-            "Description": "VDP-JD WETHERSPOON",
-            "Amount": -16.86
-        },
-        {
-            "Date": "2024-10-14",
             "Description": "VDC-TGC WHITE ROSE",
             "Amount": -2.73
         },
@@ -467,34 +581,9 @@
             "Amount": -5.73
         },
         {
-            "Date": "2024-10-14",
-            "Description": "VDP-FACEBK *Z2RNFC",
-            "Amount": -2.46
-        },
-        {
-            "Date": "2024-10-14",
-            "Description": "VDP-FACEBK *TC23GC",
-            "Amount": -2.46
-        },
-        {
-            "Date": "2024-10-16",
-            "Description": "VDC-ISS CARDINAL H",
-            "Amount": -7.25
-        },
-        {
             "Date": "2024-10-16",
             "Description": "VDP-PHELAN CONAN",
             "Amount": -33.0
-        },
-        {
-            "Date": "2024-10-16",
-            "Description": "VDC-ISS CARDINAL H",
-            "Amount": -6.1
-        },
-        {
-            "Date": "2024-10-17",
-            "Description": "VDC-ISS CARDINAL H",
-            "Amount": -5.0
         },
         {
             "Date": "2024-10-17",
@@ -502,54 +591,9 @@
             "Amount": -30.0
         },
         {
-            "Date": "2024-10-17",
-            "Description": "VDC-ISS CARDINAL H",
-            "Amount": -5.95
-        },
-        {
-            "Date": "2024-10-17",
-            "Description": "VDC-ISS CARDINAL H",
-            "Amount": -3.9
-        },
-        {
-            "Date": "2024-10-18",
-            "Description": "VDC-ISS CARDINAL H",
-            "Amount": -7.6
-        },
-        {
-            "Date": "2024-10-18",
-            "Description": "VDC-ISS CARDINAL H",
-            "Amount": -4.6
-        },
-        {
-            "Date": "2024-10-18",
-            "Description": "WITHDRAWAL",
-            "Amount": -150.5
-        },
-        {
-            "Date": "2024-10-18",
-            "Description": "VDP-WWW.AMAZON.* T",
-            "Amount": -23.83
-        },
-        {
-            "Date": "2024-10-21",
-            "Description": "D/D THREE IRELAND",
-            "Amount": -39.0
-        },
-        {
             "Date": "2024-10-21",
             "Description": "VDC-DOLANS PHARMAC",
             "Amount": -8.99
-        },
-        {
-            "Date": "2024-10-21",
-            "Description": "VDP-AMZNMktplace*T",
-            "Amount": -15.2
-        },
-        {
-            "Date": "2024-10-22",
-            "Description": "VDP-Twitch Interac",
-            "Amount": -1.65
         },
         {
             "Date": "2024-10-22",
@@ -568,11 +612,6 @@
         },
         {
             "Date": "2024-10-24",
-            "Description": "VDC-APPLEGREEN BUN",
-            "Amount": -4.5
-        },
-        {
-            "Date": "2024-10-24",
             "Description": "CAR BROKE",
             "Amount": 220.0
         },
@@ -585,11 +624,6 @@
             "Date": "2024-10-25",
             "Description": "*MOBI RENT",
             "Amount": -400.0
-        },
-        {
-            "Date": "2024-10-29",
-            "Description": "VDP-AMZNMktplace*T",
-            "Amount": -39.75
         },
         {
             "Date": "2024-10-29",
@@ -608,11 +642,6 @@
         },
         {
             "Date": "2024-10-30",
-            "Description": "VDC-THE CHARCOAL G",
-            "Amount": -25.8
-        },
-        {
-            "Date": "2024-10-30",
             "Description": "VDC-NYA*Clearhill",
             "Amount": -3.0
         },
@@ -625,11 +654,6 @@
             "Date": "2024-11-01",
             "Description": "VDC-OS654R82 IT Ca",
             "Amount": -9.9
-        },
-        {
-            "Date": "2024-11-01",
-            "Description": "VDP-AMZNMktplace*T",
-            "Amount": -37.36
         },
         {
             "Date": "2024-11-04",
@@ -650,11 +674,6 @@
             "Date": "2024-11-05",
             "Description": "VDC-NYA*Print Copy",
             "Amount": -0.8
-        },
-        {
-            "Date": "2024-11-05",
-            "Description": "VDC-THE FOXY BEAN",
-            "Amount": -4.0
         },
         {
             "Date": "2024-11-08",
@@ -683,11 +702,6 @@
         },
         {
             "Date": "2024-11-11",
-            "Description": "VDP-STEAMGAMES.COM",
-            "Amount": -1.86
-        },
-        {
-            "Date": "2024-11-11",
             "Description": "VDC-MR PRICE",
             "Amount": -1.16
         },
@@ -710,16 +724,6 @@
             "Date": "2024-11-12",
             "Description": "VDP-DEPT FOREIGN A",
             "Amount": -40.0
-        },
-        {
-            "Date": "2024-11-12",
-            "Description": "VDC-WWW.PARKINGPAY",
-            "Amount": -2.0
-        },
-        {
-            "Date": "2024-11-12",
-            "Description": "VDC-WWW.PARKINGPAY",
-            "Amount": -2.2
         },
         {
             "Date": "2024-11-15",

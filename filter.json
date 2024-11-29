@@ -5,10 +5,12 @@
 
     "Expenses": {
         "Groceries": ["ASDA", "TESCO", "LIDL"],
-        "Coffee": ["STARBUCKS"],
-        "Subscriptions": ["SOLIDWORKS"],
+        "Restaurants": ["CHARCOAL", "WETHERSPOON", "SUBWAY", "VDC-ISS CARDINAL H"],
+        "Coffee": ["STARBUCKS", "FOXY BEAN"],
+        "Subscriptions": ["SOLIDWORKS", "D/D"],
         "Partner": ["Revolut", "TransferWise"],
-        "Car": ["SPAR", "DAYBREAK"]
+        "Car": ["SPAR", "DAYBREAK","PARKING", "APPLEGREEN"],
+        "Online Shopping": ["AMAZON", "STEAMGAMES","AMZN","Twitch", "FACEBK"]
     },
 
     "Transfers":{
@@ -16,6 +18,6 @@
     },
 
     "Withdrawals":{
-        "ATM": ["VDA", "ATM"]
+        "ATM": ["VDA", "ATM", "WITHDRAWAL"]
     }
 }

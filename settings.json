@@ -2,7 +2,8 @@
     "Config":{
         "AccountName": "Greenlz",
         "Bank": "AIB",         
-        "Currency": "EUR"
+        "Currency": "EUR",
+        "Graph_Interval": "10"
     },
 
     "Supported Banks":{
