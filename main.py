@@ -3,7 +3,7 @@
 # It is a saucepan full of Youtube tutorials, Chatgpt poop, great forums and own intuition
 # It helped me to learn python and the github environment with version tracking
 # Project started on 19-Nov-2024
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 import os
 
