@@ -27,14 +27,14 @@ class TransactionProcessor:
 
     def load_csv_files(self):
         """
-        Load and concatenate all CSV files matching the pattern in the input folder.
+        Load and concatenate all CSV files in the input folder.
 
         Returns:
             pd.DataFrame: Concatenated DataFrame from all CSV files.
         """
-        csv_path = glob.glob(f"{self.input_folder}/Transaction_Export*.csv")
+        csv_path = glob.glob(f"{self.input_folder}/*.csv")  # Match all CSV files
         if not csv_path:
-            raise FileNotFoundError("No files found in the input folder matching the pattern!")
+            raise FileNotFoundError("No CSV files found in the input folder!")
         print(f"Files for bank '{self.bank}' loaded.")
         print("If you get errors below, check if all your csv headers match")
         return pd.concat(
@@ -90,13 +90,13 @@ if __name__ == "__main__":
     
     with open("settings.json", "r") as f:
         settings_data = json.load(f)
-    mybank = settings_data.get("Config", {}).get("Bank", "DefaultBank")     # Useful 
+    mybank = settings_data.get("Config", {}).get("Bank", "DefaultBank")  # Useful 
     
     processor = TransactionProcessor(
-        input_folder = "input",
-        output_file = "universal_transactions.csv",
-        mapping_file = "banks.json",
-        bank = mybank  # Change to the desired bank key
+        input_folder="input",
+        output_file="universal_transactions.csv",
+        mapping_file="banks.json",
+        bank=mybank  # Change to the desired bank key
     )
     try:
         processor.process_transactions()
