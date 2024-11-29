@@ -1,6 +1,6 @@
 !!Warning!! Please do not share your bank statements when commiting a change!!
 
-MiaBudget Application v0.1.0
+MiaBudget Application v0.2.0
 
 ----------------------------------------------------------------------------------------------
 Project Description:
